@@ -1,0 +1,77 @@
+html {
+    height: 100%;
+}
+
+body {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    background: #050210;
+}
+
+.circle {
+    position: relative;
+    width: 300px;
+    height: 300px;
+    background-color: #050210;
+    border-radius: 50%;
+}
+
+.circle::before {
+    content: '';
+    position: absolute;
+    top: -30px;
+    left: -30px;
+    width: calc(100% + 60px);
+    height: calc(100% + 60px);
+    border-radius: 50%;
+    background: linear-gradient(#fb5dad, #55fb9f, #b97aff);
+    box-shadow:
+        30px 0px 150px 10px #fb5dad,
+        0px 30px 150px 10px #55fb9f,
+        -30px 0px 150px 10px #b97aff,
+        0px -30px 150px 10px #fb5dad;
+
+    animation: animateBorder 1s linear infinite;
+    z-index: -1;
+}
+
+@keyframes animateBorder {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+
+}
+
+.inner-circle {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    height: 100%;
+    background-color: #050229;
+    border-radius: 50%;
+    opacity: 1;
+    animation: expandCircle 1s infinite;
+}
+
+@keyframes expandCircle {
+    0% {
+        width: 0;
+        height: 0;
+        opacity: 1;
+    }
+
+    100% {
+        width: 100%;
+        height: 100%;
+        opacity: 0;
+    }
+}
